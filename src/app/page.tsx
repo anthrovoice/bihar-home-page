@@ -5,6 +5,7 @@ import TopBar from "@/components/TopBar";
 import HeaderBranding from "@/components/HeaderBranding";
 import MainNavbar from "@/components/MainNavbar";
 import HeroSection from "@/components/HeroSection";
+import GrievanceStats from "@/components/GrievanceStats";
 import IntroQuoteCard from "@/components/IntroQuoteCard";
 import ActionCards from "@/components/ActionCards";
 import TrackWidget from "@/components/TrackWidget";
@@ -36,8 +37,11 @@ export default function Home() {
 
       {/* Main Content Body */}
       <main className="flex-1">
-        {/* 4. Hero Section with Banner Image Background, Explanatory Text & Live Metrics */}
-        <HeroSection onOpenModal={handleOpenModal} />
+        {/* 4. Clean Hero Banner Image */}
+        <HeroSection />
+
+        {/* 5. Separate Grievance Stats Component */}
+        <GrievanceStats />
 
         {/* 5. What We Do: Mandate, Rationale & 4 Core Pillars */}
         <IntroQuoteCard />
