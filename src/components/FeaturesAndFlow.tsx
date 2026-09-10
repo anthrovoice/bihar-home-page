@@ -1,47 +1,11 @@
 "use client";
 
 import React from "react";
-import { CheckCircle2, ArrowRight, Layers, Workflow, ShieldCheck } from "lucide-react";
+import { Layers, Workflow, ShieldCheck } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function FeaturesAndFlow() {
-  const keyFeatures = [
-    "Online Registration of Grievances",
-    "Department-wise Grievance Forwarding",
-    "Time-bound Disposal Mechanism (SLA Driven)",
-    "Instant SMS & Email Alerts",
-    "Real-Time Status Tracking & Audit Trail",
-    "Rule-based Multi-tier Escalation Matrix",
-    "Citizen Feedback & Rating System",
-    "Centralized Dashboard & Leadership Monitoring",
-  ];
-
-  const workflowSteps = [
-    {
-      step: 1,
-      title: "Citizen registers grievance online",
-      desc: "Citizen submits complaint via web portal, chatbot, or toll-free helpline 1100 with location & evidence.",
-    },
-    {
-      step: 2,
-      title: "Grievance automatically forwarded to department",
-      desc: "System routes ticket via intelligent workflow to the designated departmental Nodal Officer.",
-    },
-    {
-      step: 3,
-      title: "Department processes and updates status",
-      desc: "Field office/department resolves issue and uploads official Action Taken Report (ATR).",
-    },
-    {
-      step: 4,
-      title: "Citizen receives notification",
-      desc: "Automated SMS/Email notification sent to citizen with complete resolution remarks.",
-    },
-    {
-      step: 5,
-      title: "Escalation if not resolved within timeline",
-      desc: "Automatic escalation to senior district/state authority if SLA turnaround time is breached.",
-    },
-  ];
+  const { t } = useLanguage();
 
   return (
     <section className="py-16 px-4 sm:px-8 bg-white" id="features">
@@ -57,13 +21,13 @@ export default function FeaturesAndFlow() {
                   <Layers className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-extrabold text-slate-900">Key Features</h3>
-                  <p className="text-xs text-slate-500 font-medium">Core platform capabilities & infrastructure</p>
+                  <h3 className="text-xl font-extrabold text-slate-900">{t.featuresAndFlow.featuresTitle}</h3>
+                  <p className="text-xs text-slate-500 font-medium">{t.featuresAndFlow.featuresSubtitle}</p>
                 </div>
               </div>
 
               <ul className="space-y-3.5">
-                {keyFeatures.map((feature, idx) => (
+                {t.featuresAndFlow.featuresList.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white transition-colors group">
                     <span className="w-2.5 h-2.5 rounded-full bg-blue-600 mt-2 shrink-0 group-hover:scale-125 transition-transform shadow-xs"></span>
                     <span className="text-sm font-semibold text-slate-800 group-hover:text-blue-700 transition-colors">
@@ -77,7 +41,7 @@ export default function FeaturesAndFlow() {
             <div className="mt-8 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500">
               <span className="flex items-center gap-1">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>100% Secure & Tamper-Proof Logs</span>
+                <span>{t.featuresAndFlow.secureBadge}</span>
               </span>
             </div>
           </div>
@@ -90,13 +54,13 @@ export default function FeaturesAndFlow() {
                   <Workflow className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-extrabold text-slate-900">How It Works</h3>
-                  <p className="text-xs text-slate-500 font-medium">End-to-end grievance disposal lifecycle</p>
+                  <h3 className="text-xl font-extrabold text-slate-900">{t.featuresAndFlow.flowTitle}</h3>
+                  <p className="text-xs text-slate-500 font-medium">{t.featuresAndFlow.flowSubtitle}</p>
                 </div>
               </div>
 
               <div className="space-y-4">
-                {workflowSteps.map((stepItem) => (
+                {t.featuresAndFlow.steps.map((stepItem) => (
                   <div key={stepItem.step} className="flex items-start gap-4 p-3 rounded-2xl bg-white border border-slate-100 shadow-2xs hover:shadow-xs transition-all group">
                     <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-extrabold text-sm flex items-center justify-center shrink-0 border border-blue-200 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                       {stepItem.step}
@@ -115,7 +79,7 @@ export default function FeaturesAndFlow() {
             </div>
 
             <div className="mt-8 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500">
-              <span className="font-medium">Average SLA Resolution: 7-15 Days</span>
+              <span className="font-medium">{t.featuresAndFlow.slaNote}</span>
             </div>
           </div>
 

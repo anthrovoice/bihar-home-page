@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 import { Search, ArrowRight, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function TrackWidget({ onOpenModal }: { onOpenModal: (type: string) => void }) {
   const [complaintId, setComplaintId] = useState("");
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,10 +20,10 @@ export default function TrackWidget({ onOpenModal }: { onOpenModal: (type: strin
       <div className="max-w-5xl mx-auto relative z-10 text-center">
         
         <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-          Track Your Grievance Progress Real-Time
+          {t.trackWidget.heading}
         </h2>
         <p className="text-blue-200 text-xs sm:text-sm mt-2 max-w-xl mx-auto font-normal">
-          Enter your 12-digit Grievance Reference ID or registered Mobile Number to get instant proceedings status.
+          {t.trackWidget.subheading}
         </p>
 
         {/* Input Bar */}
@@ -32,8 +34,8 @@ export default function TrackWidget({ onOpenModal }: { onOpenModal: (type: strin
               type="text"
               value={complaintId}
               onChange={(e) => setComplaintId(e.target.value)}
-              placeholder="Enter Grievance Reference ID (e.g. GOB-2026-89412) or Mobile No."
-              className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white text-slate-900 placeholder-slate-400 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-lg"
+              placeholder={t.trackWidget.placeholder}
+              className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white text-slate-900 placeholder-slate-400 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-lg"
             />
           </div>
 
@@ -41,7 +43,7 @@ export default function TrackWidget({ onOpenModal }: { onOpenModal: (type: strin
             type="submit"
             className="px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 shrink-0 active:scale-95 cursor-pointer"
           >
-            <span>Search Status</span>
+            <span>{t.trackWidget.btn}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </form>
@@ -49,11 +51,11 @@ export default function TrackWidget({ onOpenModal }: { onOpenModal: (type: strin
         <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-blue-200">
           <span className="flex items-center gap-1.5">
             <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-            <span>Instant SMS Status Query</span>
+            <span>{t.trackWidget.smsQuery}</span>
           </span>
           <span className="flex items-center gap-1.5">
             <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-            <span>Download Action Taken Report (ATR)</span>
+            <span>{t.trackWidget.downloadAtr}</span>
           </span>
         </div>
 

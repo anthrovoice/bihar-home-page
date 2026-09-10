@@ -2,8 +2,10 @@
 
 import React from "react";
 import { Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
 
   return (
     <>
@@ -20,11 +22,11 @@ export default function Footer() {
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <span className="font-extrabold text-base text-white tracking-tight">
-                  Sahyog Helpline Portal
+                  {t.header.title}
                 </span>
               </div>
               <p className="text-slate-400 text-xs leading-relaxed font-normal">
-                Sahyog Helpline Portal provides a transparent and efficient platform for citizens to register and track complaints online. The system ensures timely resolution of grievances by connecting citizens directly with concerned departments through a structured digital workflow.
+                {t.footer.portalDesc}
               </p>
             </div>
 
@@ -32,7 +34,7 @@ export default function Footer() {
             <div>
               <h4 className="font-bold text-white text-sm mb-4 tracking-wider flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                <span>Key Links</span>
+                <span>{t.footer.keyLinks}</span>
               </h4>
               <ul className="space-y-2.5 text-slate-400">
                 <li>
@@ -62,7 +64,7 @@ export default function Footer() {
             <div>
               <h4 className="font-bold text-white text-sm mb-4 tracking-wider flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
-                <span>Important Links</span>
+                <span>{t.footer.importantLinks}</span>
               </h4>
               <ul className="space-y-2.5 text-slate-400">
                 <li>
@@ -92,20 +94,20 @@ export default function Footer() {
             <div>
               <h4 className="font-bold text-white text-sm mb-4 tracking-wider flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span>Contact Us</span>
+                <span>{t.footer.contactUs}</span>
               </h4>
               <ul className="space-y-3 text-slate-400">
                 <li className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span className="font-semibold text-white">Toll Free: 1100</span>
+                  <span className="font-semibold text-white">{t.footer.tollFree}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-blue-400 shrink-0" />
-                  <span className="text-[11px] italic text-slate-400">(to be proposed)</span>
+                  <span className="text-[11px] italic text-slate-400">{t.topBar.emailPlaceholder}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-indigo-400 shrink-0" />
-                  <span>24x7 State Call Center</span>
+                  <span>{t.footer.stateCallCenter}</span>
                 </li>
               </ul>
 
@@ -128,16 +130,16 @@ export default function Footer() {
             <div>
               <h4 className="font-bold text-white text-sm mb-4 tracking-wider flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-amber-500"></span>
-                <span>Official Address</span>
+                <span>{t.footer.addressTitle}</span>
               </h4>
               <div className="flex items-start gap-2.5 text-slate-400">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <p className="leading-relaxed">
-                  <strong className="text-white font-medium">Sahyog Portal - RTMS</strong><br />
-                  Govt. of Bihar<br />
-                  Chief Minister Secretariat<br />
-                  4, Deshratna Marg, Patna – 800001,<br />
-                  Bihar, India
+                  <strong className="text-white font-medium">{t.footer.addressText[0]}</strong><br />
+                  {t.footer.addressText[1]}<br />
+                  {t.footer.addressText[2]}<br />
+                  {t.footer.addressText[3]}<br />
+                  {t.footer.addressText[4]}
                 </p>
               </div>
             </div>
@@ -147,12 +149,12 @@ export default function Footer() {
           {/* Copyright Sub-footer */}
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-center sm:text-left text-[11px]">
             <div>
-              © Government of Bihar | All Rights Reserved
+              {t.footer.copyright}
             </div>
             <div className="flex items-center gap-2">
               <span>Designed & Developed by</span>
               <span className="font-bold text-white bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
-                BSEDC (BELTRON)
+                {t.footer.developedBy}
               </span>
             </div>
           </div>
@@ -160,12 +162,10 @@ export default function Footer() {
         </div>
       </footer>
 
-      {/* Mandatory Red Disclaimer Bar matching Screenshot 2 */}
+      {/* Mandatory Red Disclaimer Bar */}
       <div className="bg-red-600 text-white py-2.5 px-4 text-center text-xs font-semibold tracking-wide border-t border-red-700">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-2">
-          <span>
-            <strong>Disclaimer:</strong> The English content available on this website shall be treated as the official and authentic version. The Hindi content is provided solely for translation and user convenience purposes. In case of any discrepancy, inconsistency, or difference in interpretation, the English version shall prevail.
-          </span>
+          <span>{t.footer.disclaimer}</span>
         </div>
       </div>
     </>

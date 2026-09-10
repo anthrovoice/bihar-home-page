@@ -2,13 +2,16 @@
 
 import React from "react";
 import { Inbox, CheckCircle2, Clock, ShieldCheck } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function GrievanceStats() {
+  const { t } = useLanguage();
+
   const stats = [
     {
       value: "187",
-      title: "Complaints Received Today",
-      subtext: "Promptly Registered",
+      title: t.stats.receivedToday,
+      subtext: t.stats.promptlyRegistered,
       icon: Inbox,
       numberColor: "text-blue-700",
       badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
@@ -17,8 +20,8 @@ export default function GrievanceStats() {
     },
     {
       value: "143",
-      title: "Resolved Today",
-      subtext: "Action Completed",
+      title: t.stats.resolvedToday,
+      subtext: t.stats.actionCompleted,
       icon: CheckCircle2,
       numberColor: "text-emerald-600",
       badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
@@ -27,8 +30,8 @@ export default function GrievanceStats() {
     },
     {
       value: "22",
-      title: "Under Investigation",
-      subtext: "Officer Assigned",
+      title: t.stats.underInvestigation,
+      subtext: t.stats.officerAssigned,
       icon: Clock,
       numberColor: "text-amber-600",
       badgeColor: "bg-amber-50 text-amber-700 border-amber-200",
@@ -37,8 +40,8 @@ export default function GrievanceStats() {
     },
     {
       value: "0",
-      title: "Overdue Issues",
-      subtext: "Within Deadline",
+      title: t.stats.overdueIssues,
+      subtext: t.stats.withinDeadline,
       icon: ShieldCheck,
       numberColor: "text-purple-600",
       badgeColor: "bg-purple-50 text-purple-700 border-purple-200",
