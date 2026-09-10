@@ -152,7 +152,7 @@ export default function Footer() {
             <div className="flex items-center gap-2">
               <span>Designed & Developed by</span>
               <span className="font-bold text-white bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
-                NIC & BSEDC (BELTRON)
+                BSEDC (BELTRON)
               </span>
             </div>
           </div>

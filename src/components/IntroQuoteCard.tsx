@@ -3,50 +3,14 @@
 import React from "react";
 import {
   Quote,
-  ShieldCheck,
-  CheckCircle2,
-  RotateCcw,
-  Sparkles,
-  PhoneCall,
-  Clock,
-  ThumbsUp,
-  MapPin,
-  MessageSquare,
-  FileSearch,
-  Users
+  HeartHandshake,
+  Sparkles
 } from "lucide-react";
 
 export default function IntroQuoteCard() {
-  const citizenBenefits = [
-    {
-      icon: PhoneCall,
-      title: "One Call or One Click (1100)",
-      desc: "No more running from office to office. File your complaint from anywhere across Bihar using your phone or this portal.",
-      tag: "100% Free & Easy",
-    },
-    {
-      icon: Clock,
-      title: "Fixed Timeframe by Law",
-      desc: "Every complaint has a strict legal deadline. If an officer doesn't take action in time, it automatically escalates to senior officers.",
-      tag: "Time-Bound Action",
-    },
-    {
-      icon: MessageSquare,
-      title: "Direct SMS on Your Mobile",
-      desc: "Receive instant updates with the investigating officer's contact details, expected resolution date, and final action report.",
-      tag: "Transparent Tracking",
-    },
-    {
-      icon: ThumbsUp,
-      title: "Closed Only When YOU Say Yes",
-      desc: "Officers cannot unilaterally close your case. We call you to confirm your satisfaction. Not happy? Your case is reopened immediately.",
-      tag: "Your Word is Final",
-    },
-  ];
-
   return (
-    <section className="py-14 px-4 sm:px-8 bg-white border-b border-slate-200/80">
-      <div className="max-w-7xl mx-auto space-y-12">
+    <section className="py-12 px-4 sm:px-8 bg-white border-b border-slate-200/80">
+      <div className="max-w-7xl mx-auto">
         
         {/* Citizen Assurance Card */}
         <div className="bg-gradient-to-br from-orange-50/40 via-white to-blue-50/40 border-l-4 border-[#1C4D8D] rounded-3xl p-6 sm:p-10 shadow-xs border border-slate-200/80 relative overflow-hidden">
@@ -86,7 +50,7 @@ export default function IntroQuoteCard() {
               </p>
             </div>
 
-            {/* Right Callout Box: 4 Simple Citizen Steps */}
+            {/* Right Callout Box: 3 Simple Citizen Steps */}
             <div className="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
               <div>
                 <h4 className="text-xs font-black uppercase tracking-wider text-[#1C4D8D] flex items-center gap-2 mb-3">
@@ -135,34 +99,6 @@ export default function IntroQuoteCard() {
 
           </div>
 
-        </div>
-
-        {/* 4 Citizen Benefit Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {citizenBenefits.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={idx}
-                className="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-all group"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#1C4D8D] text-white flex items-center justify-center group-hover:bg-[#C35504] transition-colors shadow-sm">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <span className="text-[10px] font-bold text-slate-500 bg-white px-2.5 py-0.5 rounded-full border border-slate-200">
-                    {item.tag}
-                  </span>
-                </div>
-                <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1C4D8D] transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-slate-600 mt-1.5 leading-relaxed font-normal">
-                  {item.desc}
-                </p>
-              </div>
-            );
-          })}
         </div>
 
       </div>

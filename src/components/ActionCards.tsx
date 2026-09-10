@@ -1,7 +1,67 @@
 "use client";
 
 import React from "react";
-import { PhoneCall, Search, BellRing, MessageSquareHeart, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+// Custom high-contrast SVGs matching the original Sahyog Bihar portal
+const PhoneIcon = () => (
+  <svg className="w-8 h-8 fill-white" viewBox="0 0 24 24">
+    <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.28-.28.37-.68.25-1.02A11.36 11.36 0 019 4.31c0-.55-.45-1-1-1H4.5c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-.93z" />
+  </svg>
+);
+
+const ClipboardSearchIcon = () => (
+  <svg
+    className="w-8 h-8 text-white"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    {/* Clipboard body */}
+    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+    {/* Clip */}
+    <rect x="8" y="2" width="8" height="4" rx="1" ry="1" fill="white" stroke="white" strokeWidth="1" />
+    {/* Magnifying Glass inside */}
+    <circle cx="11" cy="13.5" r="3" strokeWidth="2.2" />
+    <path d="M13.2 15.7L17 19.5" strokeWidth="2.4" />
+  </svg>
+);
+
+const CalendarSearchIcon = () => (
+  <svg
+    className="w-8 h-8 text-white"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    {/* Calendar frame */}
+    <rect x="3" y="4" width="18" height="18" rx="3" strokeWidth="2.2" />
+    {/* Top binder rings */}
+    <line x1="3" y1="9" x2="21" y2="9" strokeWidth="2.2" />
+    <line x1="8" y1="2" x2="8" y2="5" strokeWidth="2.4" />
+    <line x1="16" y1="2" x2="16" y2="5" strokeWidth="2.4" />
+    {/* Magnifying Glass inside */}
+    <circle cx="11" cy="14.5" r="2.8" strokeWidth="2.2" />
+    <line x1="13.2" y1="16.7" x2="16.5" y2="20" strokeWidth="2.4" />
+  </svg>
+);
+
+const FeedbackUsersIcon = () => (
+  <svg className="w-8 h-8 fill-white" viewBox="0 0 24 24">
+    {/* Left Main User */}
+    <circle cx="9" cy="8" r="3.2" />
+    <path d="M3 18c0-3.3 2.7-6 6-6s6 2.7 6 6H3z" />
+    {/* Right Secondary User / Speech dialogue */}
+    <circle cx="17.5" cy="8.5" r="2.2" />
+    <path d="M15.5 18c0-1.8 1.2-3.3 2.8-3.8 1.4.3 2.7 1.5 2.7 3.8h-5.5z" />
+  </svg>
+);
 
 export default function ActionCards({ onOpenModal }: { onOpenModal: (type: string) => void }) {
   const cards = [
@@ -11,7 +71,7 @@ export default function ActionCards({ onOpenModal }: { onOpenModal: (type: strin
       description: "Complaint Online. File your complaint through our digital portal.",
       actionText: "File complaint",
       actionType: "register",
-      icon: PhoneCall,
+      icon: PhoneIcon,
     },
     {
       id: "02",
@@ -19,7 +79,7 @@ export default function ActionCards({ onOpenModal }: { onOpenModal: (type: strin
       description: "Details of proceedings. Know the current status through mobile.",
       actionText: "View Status",
       actionType: "track",
-      icon: Search,
+      icon: ClipboardSearchIcon,
     },
     {
       id: "03",
@@ -27,7 +87,7 @@ export default function ActionCards({ onOpenModal }: { onOpenModal: (type: strin
       description: "Failure to take action within stipulated time? Send a reminder.",
       actionText: "Send Reminder",
       actionType: "reminder",
-      icon: BellRing,
+      icon: CalendarSearchIcon,
     },
     {
       id: "04",
@@ -35,7 +95,7 @@ export default function ActionCards({ onOpenModal }: { onOpenModal: (type: strin
       description: "Regarding disposal of complaint. Give your feedback/suggestions.",
       actionText: "Give Feedback",
       actionType: "feedback",
-      icon: MessageSquareHeart,
+      icon: FeedbackUsersIcon,
     },
   ];
 
@@ -70,9 +130,9 @@ export default function ActionCards({ onOpenModal }: { onOpenModal: (type: strin
                 </span>
 
                 <div className="relative z-10">
-                  {/* Icon Header Box */}
+                  {/* Icon Header Box matching original Sahyog icon-box */}
                   <div className="w-16 h-16 rounded-2xl bg-[#C35504] text-white flex items-center justify-center mb-6 shadow-md shadow-orange-700/20 group-hover:bg-[#1C4D8D] transition-colors">
-                    <IconComponent className="w-8 h-8" />
+                    <IconComponent />
                   </div>
 
                   {/* Title & Description */}
