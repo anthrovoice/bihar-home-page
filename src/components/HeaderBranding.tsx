@@ -1,0 +1,68 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { UserCheck, User } from "lucide-react";
+
+export default function HeaderBranding() {
+  return (
+    <header className="bg-white py-3.5 px-4 sm:px-8 border-b border-slate-200 shadow-2xs">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        {/* Left Branding Group */}
+        <div className="flex flex-col sm:flex-row items-center gap-3.5 text-center sm:text-left">
+          
+          {/* Bihar Govt Official Logo */}
+          <div className="relative w-14 h-16 shrink-0 flex items-center justify-center">
+            <Image
+              src="/bihar-logo.png"
+              alt="Government of Bihar"
+              width={56}
+              height={68}
+              className="object-contain"
+              priority
+            />
+          </div>
+
+          {/* Title & Tagline */}
+          <div className="border-l-0 sm:border-l-2 border-slate-200 sm:pl-4">
+            <h1 className="text-xl sm:text-2xl font-black text-[#1C4D8D] tracking-tight leading-tight">
+              Sahyog Helpline Portal
+            </h1>
+            <p className="text-xs font-extrabold text-[#C35504] tracking-wide mt-0.5">
+              Government of Bihar
+            </p>
+          </div>
+        </div>
+
+        {/* Right Side: Two Login Buttons (Officer Login & Citizen Login) */}
+        <div className="flex items-center gap-3 shrink-0">
+          
+          {/* Citizen Login Button */}
+          <a
+            href="https://citizen.lumirex.tech/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold text-xs shadow-sm hover:shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <User className="w-4 h-4" />
+            <span>Citizen Login</span>
+          </a>
+
+          {/* Officer Login Button */}
+          <a
+            href="https://portal.lumirex.tech/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1C4D8D] to-[#163c6f] hover:from-[#163c6f] hover:to-[#0F2A52] text-white font-bold text-xs shadow-sm hover:shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <UserCheck className="w-4 h-4" />
+            <span>Officer Login</span>
+          </a>
+
+        </div>
+
+      </div>
+    </header>
+  );
+}
