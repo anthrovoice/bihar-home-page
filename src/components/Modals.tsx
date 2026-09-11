@@ -61,7 +61,7 @@ export default function Modals({ activeModal, onClose }: ModalsProps) {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-slate-900">Online Grievance Registration</h3>
-                    <p className="text-xs text-slate-500">Sahyog Portal - RTMS • Govt. of Bihar</p>
+                    <p className="text-xs text-slate-500">Sahyog Helpline Portal • Govt. of Bihar</p>
                   </div>
                 </div>
 
