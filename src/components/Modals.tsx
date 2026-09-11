@@ -20,6 +20,21 @@ export default function Modals({ activeModal, onClose }: ModalsProps) {
     setExpandedFaqs((prev) => ({ ...prev, [idx]: !prev[idx] }));
   };
 
+  const isFaqModal = activeModal === "faq" || (activeModal ? activeModal.startsWith("faq-") : false);
+
+  React.useEffect(() => {
+    if (activeModal && activeModal.startsWith("faq-")) {
+      const idx = parseInt(activeModal.replace("faq-", ""), 10);
+      if (!isNaN(idx)) {
+        setExpandedFaqs({ [idx]: true });
+        setFaqSearch("");
+      }
+    } else if (activeModal === "faq") {
+      setExpandedFaqs({ 0: true });
+      setFaqSearch("");
+    }
+  }, [activeModal]);
+
   if (!activeModal) return null;
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -38,7 +53,7 @@ export default function Modals({ activeModal, onClose }: ModalsProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className={`bg-white rounded-3xl w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200 overflow-hidden max-h-[90vh] overflow-y-auto ${activeModal === "faq" ? "max-w-3xl" : "max-w-lg"}`}>
+      <div className={`bg-white rounded-3xl w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200 overflow-hidden max-h-[90vh] overflow-y-auto ${isFaqModal ? "max-w-3xl" : "max-w-lg"}`}>
         
         {/* Close Button */}
         <button
@@ -414,7 +429,7 @@ export default function Modals({ activeModal, onClose }: ModalsProps) {
         )}
 
         {/* 6. FAQ MODAL */}
-        {activeModal === "faq" && (
+        {isFaqModal && (
           <div>
             <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-200">
               <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#1C4D8D] flex items-center justify-center font-bold">
