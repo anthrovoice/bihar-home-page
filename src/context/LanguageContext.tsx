@@ -4,6 +4,11 @@ import React, { createContext, useContext, useState, ReactNode } from "react";
 
 export type Language = "hi" | "en";
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 export interface Translations {
   topBar: {
     helpline: string;
@@ -20,18 +25,11 @@ export interface Translations {
   };
   navbar: {
     home: string;
+    faq: string;
     citizenServices: string;
     newComplaint: string;
     registeredUser: string;
-    importantLinks: string;
-    faq: string;
-    rti: string;
-    privacy: string;
-    accessibility: string;
-    contact: string;
-    sssPortal: string;
-    stateLevelProgram: string;
-    vidyarthiProgram: string;
+    onlineUsers: string;
   };
   stats: {
     receivedToday: string;
@@ -81,10 +79,13 @@ export interface Translations {
       desc: string;
     }[];
   };
+  faqs: {
+    title: string;
+    subtitle: string;
+    items: FAQItem[];
+  };
   footer: {
     portalDesc: string;
-    keyLinks: string;
-    importantLinks: string;
     contactUs: string;
     addressTitle: string;
     tollFree: string;
@@ -113,18 +114,11 @@ export const translations: Record<Language, Translations> = {
     },
     navbar: {
       home: "मुख्य पृष्ठ",
+      faq: "अक्सर पूछे जाने वाले प्रश्न (FAQ)",
       citizenServices: "नागरिक सेवाएं",
       newComplaint: "नई शिकायत दर्ज करें",
       registeredUser: "पंजीकृत उपयोगकर्ता",
-      importantLinks: "महत्वपूर्ण लिंक",
-      faq: "अक्सर पूछे जाने वाले प्रश्न (FAQ)",
-      rti: "आरटीआई (जानकारी पोर्टल)",
-      privacy: "गोपनीयता नीति",
-      accessibility: "सुलभता विवरण",
-      contact: "संपर्क करें",
-      sssPortal: "एसएसएस पोर्टल",
-      stateLevelProgram: "राज्य स्तरीय सहयोग कार्यक्रम",
-      vidyarthiProgram: "विद्यार्थी सहयोग कार्यक्रम",
+      onlineUsers: "ऑनलाइन उपयोगकर्ता",
     },
     stats: {
       receivedToday: "आज प्राप्त शिकायतें",
@@ -205,20 +199,83 @@ export const translations: Record<Language, Translations> = {
         },
       ],
     },
+    faqs: {
+      title: "अक्सर पूछे जाने वाले प्रश्न (FAQ)",
+      subtitle: "बिहार सहयोग पोर्टल – रियल-टाइम मॉनिटरिंग सिस्टम से संबंधित आवश्यक जानकारियां",
+      items: [
+        {
+          question: "1. बिहार सहयोग पोर्टल – रियल-टाइम मॉनिटरिंग सिस्टम क्या है?",
+          answer: "बिहार सहयोग पोर्टल – रियल-टाइम मॉनिटरिंग सिस्टम बिहार सरकार का एक केंद्रीकृत डिजिटल प्लेटफॉर्म है, जिसे जन शिकायतों के पंजीकरण, निगरानी, ट्रैकिंग और समयबद्ध निवारण के लिए विकसित किया गया है।",
+        },
+        {
+          question: "2. बिहार सहयोग पोर्टल का मुख्य उद्देश्य क्या है?",
+          answer: "इसके प्रमुख उद्देश्य हैं:\n• पारदर्शिता और जवाबदेही सुनिश्चित करना\n• शिकायतों का समयबद्ध निवारण सक्षम करना\n• विभाग, जिला और उच्च प्रशासनिक स्तरों पर निगरानी की सुविधा प्रदान करना\n• सार्वजनिक सेवा वितरण में सुधार करना",
+        },
+        {
+          question: "3. शिकायत कौन दर्ज करा सकता है?",
+          answer: "कोई भी नागरिक निम्नलिखित से संबंधित शिकायत दर्ज करा सकता है:\n• सरकारी योजनाओं एवं सेवाओं से संबंधित\n• सेवा वितरण में देरी\n• अनुमेय लाभों की अप्राप्ति\n• अधिकारियों का कदाचार या लापरवाही\n• बुनियादी ढांचे एवं नागरिक सुविधाएं संबंधी समस्याएं",
+        },
+        {
+          question: "4. शिकायत किन माध्यमों से दर्ज की जा सकती है?",
+          answer: "शिकायतें उपलब्ध विभिन्न माध्यमों से दर्ज की जा सकती हैं, जिनमें शामिल हैं:\n• ऑनलाइन वेब पोर्टल\n• चैटबॉट\n• एसएमएस (SMS)\n• ईमेल\n• वॉइस कॉल / हेल्पलाइन (1100)\n• सीसीएस (कॉल सेंटर एग्जीक्यूटिव), यथायोग्य",
+        },
+        {
+          question: "5. शिकायत दर्ज करने के लिए क्या जानकारी आवश्यक है?",
+          answer: "शिकायतकर्ता को निम्नलिखित जानकारी प्रदान करने की आवश्यकता हो सकती है:\n• नाम और संपर्क विवरण (मोबाइल नंबर)\n• पता / जिला / प्रखंड / पंचायत\n• संबंधित विभाग\n• शिकायत का विवरण\n• सहायक दस्तावेज (यदि लागू हो)",
+        },
+        {
+          question: "6. क्या शिकायत दर्ज करने के बाद पावती (Acknowledgement) प्राप्त होगी?",
+          answer: "हाँ। सफल पंजीकरण के पश्चात एक विशिष्ट शिकायत पंजीकरण संख्या (Grievance Registration Number) उत्पन्न होती है। पंजीकृत संपर्क विवरण पर एसएमएस/ईमेल के माध्यम से भी पावती भेजी जाती है।",
+        },
+        {
+          question: "7. मैं अपनी शिकायत की स्थिति कैसे ट्रैक कर सकता हूँ?",
+          answer: "नागरिक सहयोग पोर्टल और अन्य उपलब्ध ट्रैकिंग तंत्रों के माध्यम से अपनी विशिष्ट शिकायत पंजीकरण संख्या (Grievance Registration Number) का उपयोग करके अपनी शिकायत की स्थिति ट्रैक कर सकते हैं।",
+        },
+        {
+          question: "8. शिकायत निवारण की समय सीमा क्या है?",
+          answer: "निवारण की समय सीमा संबंधित विभाग और शिकायत की प्रकृति पर निर्भर करती है। जहां लागू हो, शिकायतों को प्रत्येक स्तर पर निर्धारित समय सीमा के साथ परिभाषित स्तरों के माध्यम से संसाधित किया जाता है।",
+        },
+        {
+          question: "9. यदि मेरी शिकायत निर्धारित समय के भीतर हल नहीं होती है तो क्या होगा?",
+          answer: "यदि निर्धारित समय सीमा के भीतर शिकायत का समाधान नहीं होता है, तो इसे नियमानुसार संबंधित उच्चाधिकारी को एस्केलेट (अग्रेषित) किया जा सकता है। लंबित शिकायतों की लगातार सिस्टम डैशबोर्ड के माध्यम से उच्च स्तर पर निगरानी की जाती है।",
+        },
+        {
+          question: "10. क्या बंद की गई शिकायत को पुनः खोला जा सकता है?",
+          answer: "यदि नागरिक प्राप्त समाधान से संतुष्ट नहीं हैं, तो वे लागू नियमों और समय सीमा के अधीन उपलब्ध री-ओपन (पुनः खोलने) या अपील तंत्र का उपयोग कर सकते हैं।",
+        },
+        {
+          question: "11. शिकायतों की निगरानी कैसे की जाती है?",
+          answer: "शिकायतों की निगरानी कई प्रशासनिक स्तरों पर की जाती है, जिनमें शामिल हैं:\n• विभागीय स्तर\n• जिला स्तर\n• वरिष्ठ विभागीय / सचिवालय स्तर\n• उच्च स्तरीय निगरानी डैशबोर्ड (यथायोग्य)",
+        },
+        {
+          question: "12. एस्केलेशन तंत्र (Escalation Mechanism) क्या है?",
+          answer: "शिकायत निर्धारित पदानुक्रम के अनुसार आगे बढ़ सकती है, जैसे:\n• स्तर 1 – संबंधित नोडल अधिकारी\n• स्तर 2 – जिला स्तरीय प्राधिकारी\n• स्तर 3 – विभागीय प्राधिकारी / उच्च स्तरीय निगरानी",
+        },
+        {
+          question: "13. क्या सहायक दस्तावेज अपलोड किए जा सकते हैं?",
+          answer: "हाँ। नागरिक पोर्टल द्वारा निर्धारित फाइल-साइज और फॉर्मेट सीमाओं के अधीन, पीडीएफ (PDF) और इमेज फाइलों जैसे प्रासंगिक सहायक दस्तावेज अपलोड कर सकते हैं।",
+        },
+        {
+          question: "14. तकनीकी समस्याओं के लिए किससे संपर्क किया जा सकता है?",
+          answer: "तकनीकी सहायता के लिए, नागरिक पोर्टल पर उपलब्ध कराए गए निर्धारित सहयोग पोर्टल हेल्पडेस्क / तकनीकी सहायता दल से संपर्क कर सकते हैं।",
+        },
+        {
+          question: "15. बिहार सहयोग पोर्टल शासन व्यवस्था में कैसे सुधार करता है?",
+          answer: "यह प्रणाली निम्नलिखित के माध्यम से बेहतर सुशासन को सशक्त बनाती है:\n• रियल-टाइम शिकायत निगरानी\n• डेटा एनालिटिक्स और रिपोर्टिंग\n• जिलावार लंबित मामलों की निगरानी\n• विभागवार कार्य निष्पादन विश्लेषण\n• प्रशासनिक सुधार हेतु बार-बार आने वाली समस्याओं की पहचान",
+        },
+      ],
+    },
     footer: {
       portalDesc: "सहयोग हेल्पलाइन पोर्टल बिहार सरकार का एक पारदर्शी एवं समयबद्ध डिजिटल माध्यम है, जो नागरिकों को उनकी समस्याओं के समाधान हेतु सीधे संबंधित विभागों से जोड़ता है।",
-      keyLinks: "मुख्य लिंक",
-      importantLinks: "महत्वपूर्ण लिंक",
       contactUs: "संपर्क करें",
       addressTitle: "आधिकारिक पता",
       tollFree: "टोल-फ्री: 1100",
       stateCallCenter: "24×7 राज्य कॉल सेंटर",
       addressText: [
-        "सहयोग हेल्पलाइन पोर्टल",
-        "बिहार सरकार",
-        "मुख्यमंत्री सचिवालय",
-        "4, देशरत्न मार्ग, पटना – 800001,",
-        "बिहार, भारत",
+        "सहयोग हेल्पलाइन",
+        "11वीं मंजिल, बिस्कोमान टॉवर",
+        "पश्चिम गांधी मैदान",
+        "पटना, बिहार - 800001",
       ],
       copyright: "© बिहार सरकार | सर्वाधिकार सुरक्षित",
       developedBy: "BSEDC (BELTRON)",
@@ -241,18 +298,11 @@ export const translations: Record<Language, Translations> = {
     },
     navbar: {
       home: "Home Page",
+      faq: "FAQ",
       citizenServices: "Citizen Services",
       newComplaint: "New Complaint",
       registeredUser: "Registered User",
-      importantLinks: "Important Links",
-      faq: "FAQ",
-      rti: "RTI (Jaankari Portal)",
-      privacy: "Privacy Policy",
-      accessibility: "Accessibility Statement",
-      contact: "Contact Us",
-      sssPortal: "SSS Portal",
-      stateLevelProgram: "State Level Sahyog Program",
-      vidyarthiProgram: "Vidyarthi Sahyog Karyakram",
+      onlineUsers: "Online Users",
     },
     stats: {
       receivedToday: "Complaints Received Today",
@@ -333,20 +383,83 @@ export const translations: Record<Language, Translations> = {
         },
       ],
     },
+    faqs: {
+      title: "Frequently Asked Questions (FAQ)",
+      subtitle: "Bihar Sahyog Portal – Real-Time Monitoring System Guidelines & Information",
+      items: [
+        {
+          question: "1. What is Bihar Sahyog Portal – Real-Time Monitoring System?",
+          answer: "Bihar Sahyog Portal – Real-Time Monitoring System is a centralized digital platform of the Government of Bihar for registration, monitoring, tracking, and time-bound resolution of public grievances.",
+        },
+        {
+          question: "2. What is the objective of the Bihar Sahyog Portal?",
+          answer: "The key objectives are to:\n• Ensure transparency and accountability\n• Enable time-bound grievance resolution\n• Facilitate monitoring at Department, District, and higher administrative levels\n• Improve public service delivery",
+        },
+        {
+          question: "3. Who can file a grievance?",
+          answer: "Any citizen can file a grievance related to:\n• Government schemes and services\n• Delay in service delivery\n• Non-receipt of entitled benefits\n• Misconduct or negligence of officials\n• Infrastructure and civic issues",
+        },
+        {
+          question: "4. Through which channels can grievances be filed?",
+          answer: "Grievances can be registered through the available channels, including:\n• Online Portal\n• Chatbot\n• SMS\n• Email\n• Voice/Call\n• CCE (Citizen/Call Centre Executive), as applicable",
+        },
+        {
+          question: "5. What information is required to file a grievance?",
+          answer: "The complainant may be required to provide:\n• Name and contact details\n• Address/District/Block/panchyat\n• Concerned Department\n• Description of the grievance\n• Supporting documents, if applicable",
+        },
+        {
+          question: "6. Will I receive an acknowledgement after submission?",
+          answer: "Yes. After successful registration, a unique Grievance Registration Number is generated. An acknowledgement may also be sent through SMS/Email to the registered contact details.",
+        },
+        {
+          question: "7. How can I track my grievance?",
+          answer: "Citizens can track their grievance by using the Grievance Registration Number through the Sahyog Portal and other available tracking mechanisms.",
+        },
+        {
+          question: "8. What is the time limit for grievance disposal?",
+          answer: "The disposal timeline depends on the department and nature of the grievance. Where applicable, grievances may be processed through defined levels, with a prescribed timeline at each level.",
+        },
+        {
+          question: "9. What happens if my grievance is not resolved within the prescribed time?",
+          answer: "If a grievance is not resolved within the prescribed timeline, it may be escalated to the appropriate higher authority. Pending grievances are also monitored through the system dashboards.",
+        },
+        {
+          question: "10. Can I reopen a closed grievance?",
+          answer: "If the citizen is not satisfied with the resolution, they may use the available reopen/appeal mechanism, subject to the applicable rules and time limit.",
+        },
+        {
+          question: "11. How is grievance monitoring done?",
+          answer: "Grievances are monitored at multiple administrative levels, including:\n• Departmental level\n• District level\n• Senior Departmental/Secretariat level\n• Higher-level monitoring dashboards, as applicable",
+        },
+        {
+          question: "12. What is the escalation mechanism?",
+          answer: "The grievance may move through the defined escalation hierarchy, such as:\n• Level 1 – Concerned Officer\n• Level 2 – District Authority\n• Level 3 – Departmental Authority / Higher-Level Monitoring",
+        },
+        {
+          question: "13. Can supporting documents be uploaded?",
+          answer: "Yes. Citizens may upload relevant supporting documents, such as PDFs and image files, subject to the portal's prescribed file-size and format limits.",
+        },
+        {
+          question: "14. Whom can I contact for technical issues?",
+          answer: "For technical assistance, citizens may contact the designated Sahyog Portal Helpdesk/Technical Support, as provided on the portal.",
+        },
+        {
+          question: "15. How does the Bihar Sahyog Portal improve governance?",
+          answer: "The system supports better governance through:\n• Real-time grievance monitoring\n• Data analytics and reporting\n• District-wise pendency monitoring\n• Department-wise performance analysis\n• Identification of recurring issues for administrative improvement",
+        },
+      ],
+    },
     footer: {
       portalDesc: "Sahyog Helpline Portal provides a transparent and efficient platform for citizens to register and track complaints online. The system ensures timely resolution of grievances by connecting citizens directly with concerned departments through a structured digital workflow.",
-      keyLinks: "Key Links",
-      importantLinks: "Important Links",
       contactUs: "Contact Us",
       addressTitle: "Official Address",
       tollFree: "Toll Free: 1100",
       stateCallCenter: "24×7 State Call Center",
       addressText: [
-        "Sahyog Helpline Portal",
-        "Govt. of Bihar",
-        "Chief Minister Secretariat",
-        "4, Deshratna Marg, Patna – 800001,",
-        "Bihar, India",
+        "Sahyog Helpline",
+        "11th Floor, Biscomaun Tower",
+        "West Gandhi Maidan",
+        "Patna, Bihar - 800001",
       ],
       copyright: "© Government of Bihar | All Rights Reserved",
       developedBy: "BSEDC (BELTRON)",
