@@ -59,10 +59,14 @@ export interface Translations {
   };
   trackWidget: {
     heading: string;
-    placeholder: string;
+    subheading: string;
+    trackingIdLabel: string;
+    trackingIdPlaceholder: string;
+    trackingIdFormat: string;
+    securityCodeLabel: string;
+    securityCodePlaceholder: string;
     btn: string;
-    smsQuery: string;
-    downloadAtr: string;
+    backToLogin: string;
   };
   featuresAndFlow: {
     featuresTitle: string;
@@ -145,11 +149,15 @@ export const translations: Record<Language, Translations> = {
       card4Btn: "प्रतिक्रिया दें",
     },
     trackWidget: {
-      heading: "शिकायत की वास्तविक स्थिति",
-      placeholder: "शिकायत संदर्भ संख्या (उदा. GOB-2026-89412) या मोबाइल नंबर दर्ज करें",
-      btn: "स्थिति देखे",
-      smsQuery: "त्वरित एसएमएस स्थिति जांच",
-      downloadAtr: "कार्रवाई रिपोर्ट (ATR) डाउनलोड करें",
+      heading: "शिकायत की स्थिति ट्रैक करें",
+      subheading: "स्थिति देखने के लिए अपनी ट्रैकिंग आईडी और सुरक्षा कोड दर्ज करें",
+      trackingIdLabel: "ट्रैकिंग आईडी",
+      trackingIdPlaceholder: "2026-000031",
+      trackingIdFormat: "प्रारूप: BR-YYYY-XXXXXX (उदा. BR-2026-000031)",
+      securityCodeLabel: "सुरक्षा कोड",
+      securityCodePlaceholder: "सुरक्षा कोड दर्ज करें",
+      btn: "स्थिति देखें",
+      backToLogin: "Back to login",
     },
     featuresAndFlow: {
       featuresTitle: "प्रमुख विशेषताएं",
@@ -327,11 +335,15 @@ export const translations: Record<Language, Translations> = {
       card4Btn: "Give Feedback",
     },
     trackWidget: {
-      heading: "Track Your Grievance Progress Real-Time",
-      placeholder: "Enter Grievance Reference ID (e.g. GOB-2026-89412) or Mobile No.",
-      btn: "Search Status",
-      smsQuery: "Instant SMS Status Query",
-      downloadAtr: "Download Action Taken Report (ATR)",
+      heading: "Track Complaint Status",
+      subheading: "Enter your Tracking ID and security code to view status",
+      trackingIdLabel: "Tracking ID",
+      trackingIdPlaceholder: "2026-000031",
+      trackingIdFormat: "Format: BR-YYYY-XXXXXX (e.g. BR-2026-000031)",
+      securityCodeLabel: "Security Code",
+      securityCodePlaceholder: "Enter security code",
+      btn: "Track Status",
+      backToLogin: "Back to login",
     },
     featuresAndFlow: {
       featuresTitle: "Key Features",
