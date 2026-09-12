@@ -59,7 +59,6 @@ export interface Translations {
   };
   trackWidget: {
     heading: string;
-    subheading: string;
     placeholder: string;
     btn: string;
     smsQuery: string;
@@ -71,7 +70,6 @@ export interface Translations {
     flowTitle: string;
     flowSubtitle: string;
     secureBadge: string;
-    slaNote: string;
     featuresList: string[];
     steps: {
       step: number;
@@ -147,10 +145,9 @@ export const translations: Record<Language, Translations> = {
       card4Btn: "प्रतिक्रिया दें",
     },
     trackWidget: {
-      heading: "शिकायत की वास्तविक स्थिति जानें",
-      subheading: "अपनी 12 अंकों की शिकायत संदर्भ संख्या या पंजीकृत मोबाइल नंबर दर्ज करें",
+      heading: "शिकायत की वास्तविक स्थिति",
       placeholder: "शिकायत संदर्भ संख्या (उदा. GOB-2026-89412) या मोबाइल नंबर दर्ज करें",
-      btn: "स्थिति जांचें",
+      btn: "स्थिति देखे",
       smsQuery: "त्वरित एसएमएस स्थिति जांच",
       downloadAtr: "कार्रवाई रिपोर्ट (ATR) डाउनलोड करें",
     },
@@ -160,7 +157,6 @@ export const translations: Record<Language, Translations> = {
       flowTitle: "यह कैसे कार्य करता है",
       flowSubtitle: "शिकायत निवारण की 5-चरणीय प्रक्रिया",
       secureBadge: "100% सुरक्षित एवं प्रमाणित रिकॉर्ड",
-      slaNote: "औसत समाधान समय: 7-15 दिन",
       featuresList: [
         "शिकायतों का ऑनलाइन पंजीकरण",
         "विभागवार शिकायतों का त्वरित अग्रेषण",
@@ -332,7 +328,6 @@ export const translations: Record<Language, Translations> = {
     },
     trackWidget: {
       heading: "Track Your Grievance Progress Real-Time",
-      subheading: "Enter your 12-digit Grievance Reference ID or registered Mobile Number to get instant proceedings status",
       placeholder: "Enter Grievance Reference ID (e.g. GOB-2026-89412) or Mobile No.",
       btn: "Search Status",
       smsQuery: "Instant SMS Status Query",
@@ -344,7 +339,6 @@ export const translations: Record<Language, Translations> = {
       flowTitle: "How It Works",
       flowSubtitle: "End-to-end 5-step grievance disposal lifecycle",
       secureBadge: "100% Secure & Tamper-Proof Logs",
-      slaNote: "Average SLA Resolution: 7-15 Days",
       featuresList: [
         "Online Registration of Grievances",
         "Department-wise Grievance Forwarding",

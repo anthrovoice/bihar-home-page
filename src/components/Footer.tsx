@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
+import { Phone, Mail, MapPin, ShieldCheck, AlertCircle } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
@@ -102,9 +102,10 @@ export default function Footer() {
       </footer>
 
       {/* Mandatory Red Disclaimer Bar */}
-      <div className="bg-red-600 text-white py-2.5 px-4 text-center text-xs font-semibold tracking-wide border-t border-red-700">
+      <div className="bg-red-700 text-white py-2.5 px-4 text-center text-xs font-semibold tracking-wide border-t border-red-800 shadow-inner">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-2">
-          <span>{t.footer.disclaimer}</span>
+          <AlertCircle className="w-4 h-4 text-red-200 shrink-0" />
+          <p className="leading-snug">{t.footer.disclaimer}</p>
         </div>
       </div>
     </>

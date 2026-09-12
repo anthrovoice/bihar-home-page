@@ -43,7 +43,7 @@ export default function HeaderBranding() {
           
           {/* Citizen Login Button */}
           <a
-            href="https://citizen.lumirex.tech/"
+            href="https://citizen.lumirex.tech/login"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold text-xs shadow-sm hover:shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"

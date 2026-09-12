@@ -22,9 +22,6 @@ export default function TrackWidget({ onOpenModal }: { onOpenModal: (type: strin
         <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
           {t.trackWidget.heading}
         </h2>
-        <p className="text-blue-200 text-xs sm:text-sm mt-2 max-w-xl mx-auto font-normal">
-          {t.trackWidget.subheading}
-        </p>
 
         {/* Input Bar */}
         <form onSubmit={handleSubmit} className="mt-8 max-w-2xl mx-auto flex flex-col sm:flex-row gap-3">

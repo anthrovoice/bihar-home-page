@@ -65,6 +65,7 @@ export default function ActionCards({ onOpenModal }: { onOpenModal: (type: strin
       description: t.actionCards.card1Desc,
       actionText: t.actionCards.card1Btn,
       actionType: "register",
+      externalUrl: "https://citizen.lumirex.tech/citizen/raise",
       icon: PhoneIcon,
     },
     {
@@ -115,7 +116,13 @@ export default function ActionCards({ onOpenModal }: { onOpenModal: (type: strin
             return (
               <div
                 key={card.id}
-                onClick={() => onOpenModal(card.actionType)}
+                onClick={() => {
+                  if (card.externalUrl) {
+                    window.open(card.externalUrl, "_blank", "noopener,noreferrer");
+                  } else {
+                    onOpenModal(card.actionType);
+                  }
+                }}
                 className="relative bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 cursor-pointer group flex flex-col justify-between overflow-hidden hover:-translate-y-2"
               >
                 {/* Background Large Number Watermark */}
