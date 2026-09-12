@@ -149,7 +149,7 @@ export const translations: Record<Language, Translations> = {
       card4Btn: "प्रतिक्रिया दें",
     },
     trackWidget: {
-      heading: "शिकायत की स्थिति ट्रैक करें",
+      heading: "शिकायत की स्थिति जाने",
       subheading: "स्थिति देखने के लिए अपनी ट्रैकिंग आईडी और सुरक्षा कोड दर्ज करें",
       trackingIdLabel: "ट्रैकिंग आईडी",
       trackingIdPlaceholder: "2026-000031",
