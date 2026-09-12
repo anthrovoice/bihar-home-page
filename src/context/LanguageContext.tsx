@@ -42,7 +42,6 @@ export interface Translations {
     withinDeadline: string;
   };
   actionCards: {
-    portalBadge: string;
     heading: string;
     card1Title: string;
     card1Desc: string;
@@ -133,7 +132,6 @@ export const translations: Record<Language, Translations> = {
       withinDeadline: "समय सीमा के भीतर",
     },
     actionCards: {
-      portalBadge: "नागरिक सेवा पोर्टल",
       heading: "प्रमुख त्वरित सेवाएं",
       card1Title: "शिकायत पंजीकरण",
       card1Desc: "ऑनलाइन शिकायत। हमारे डिजिटल पोर्टल के माध्यम से अपनी शिकायत दर्ज करें।",
@@ -150,8 +148,8 @@ export const translations: Record<Language, Translations> = {
     },
     trackWidget: {
       heading: "शिकायत की स्थिति जाने",
-      subheading: "स्थिति देखने के लिए अपनी ट्रैकिंग आईडी और सुरक्षा कोड दर्ज करें",
-      trackingIdLabel: "ट्रैकिंग आईडी",
+      subheading: "स्थिति देखने के लिए अपनी शिकायत संख्य और सुरक्षा कोड दर्ज करें",
+      trackingIdLabel: "शिकायत संख्य",
       trackingIdPlaceholder: "2026-000031",
       trackingIdFormat: "प्रारूप: BR-YYYY-XXXXXX (उदा. BR-2026-000031)",
       securityCodeLabel: "सुरक्षा कोड",
@@ -319,7 +317,6 @@ export const translations: Record<Language, Translations> = {
       withinDeadline: "Within Deadline",
     },
     actionCards: {
-      portalBadge: "Citizen Services Portal",
       heading: "Key Quick Services",
       card1Title: "Complaint Registration",
       card1Desc: "Complaint Online. File your complaint through our digital portal.",
