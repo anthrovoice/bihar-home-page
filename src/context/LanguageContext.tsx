@@ -65,7 +65,6 @@ export interface Translations {
     securityCodeLabel: string;
     securityCodePlaceholder: string;
     btn: string;
-    backToLogin: string;
   };
   featuresAndFlow: {
     featuresTitle: string;
@@ -155,7 +154,6 @@ export const translations: Record<Language, Translations> = {
       securityCodeLabel: "सुरक्षा कोड",
       securityCodePlaceholder: "सुरक्षा कोड दर्ज करें",
       btn: "स्थिति देखें",
-      backToLogin: "Back to login",
     },
     featuresAndFlow: {
       featuresTitle: "प्रमुख विशेषताएं",
@@ -340,7 +338,6 @@ export const translations: Record<Language, Translations> = {
       securityCodeLabel: "Security Code",
       securityCodePlaceholder: "Enter security code",
       btn: "Track Status",
-      backToLogin: "Back to login",
     },
     featuresAndFlow: {
       featuresTitle: "Key Features",

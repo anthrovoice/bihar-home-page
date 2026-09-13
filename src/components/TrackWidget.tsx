@@ -182,16 +182,6 @@ export default function TrackWidget({ onOpenModal }: TrackWidgetProps) {
           </form>
         </div>
 
-        {/* Back to Login Link */}
-        <div className="mt-6 text-center">
-          <a
-            href="https://citizen.lumirex.tech/login"
-            className="text-sm font-bold text-[#14264E] hover:underline cursor-pointer transition-colors"
-          >
-            {t.trackWidget.backToLogin}
-          </a>
-        </div>
-
       </div>
     </section>
   );
