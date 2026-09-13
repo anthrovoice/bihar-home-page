@@ -3,8 +3,6 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { 
-  HelpCircle, 
-  Search, 
   ChevronDown, 
   Phone, 
   ArrowRight, 
@@ -22,7 +20,6 @@ import Modals from "@/components/Modals";
 
 function FAQContent() {
   const { t, lang } = useLanguage();
-  const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [expandedFaqs, setExpandedFaqs] = useState<Record<number, boolean>>({ 0: true, 1: true });
   const [activeModal, setActiveModal] = useState<string | null>(null);
@@ -55,7 +52,7 @@ function FAQContent() {
     setExpandedFaqs({});
   };
 
-  // Filter items based on search query and category
+  // Filter items based on category
   const filteredFaqs = useMemo(() => {
     return t.faqs.items
       .map((item, originalIndex) => ({ ...item, originalIndex }))
@@ -67,15 +64,9 @@ function FAQContent() {
             return false;
           }
         }
-        // Search filter
-        if (searchQuery.trim() === "") return true;
-        const q = searchQuery.toLowerCase();
-        return (
-          item.question.toLowerCase().includes(q) ||
-          item.answer.toLowerCase().includes(q)
-        );
+        return true;
       });
-  }, [t.faqs.items, activeCategory, searchQuery, categories]);
+  }, [t.faqs.items, activeCategory, categories]);
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-[#1C4D8D] selection:text-white">
@@ -103,42 +94,11 @@ function FAQContent() {
         </div>
 
         {/* Page Hero Header */}
-        <section className="bg-gradient-to-b from-[#1C4D8D] to-[#12335f] text-white py-12 px-4 sm:px-8 shadow-inner">
+        <section className="bg-gradient-to-b from-[#1C4D8D] to-[#12335f] text-white py-10 px-4 sm:px-8 shadow-inner">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-xs font-semibold uppercase tracking-wider mb-4">
-              <HelpCircle className="w-4 h-4 text-amber-400" />
-              <span>{lang === "hi" ? "नागरिक सहायता एवं ज्ञान केंद्र" : "Citizen Assistance & Knowledge Center"}</span>
-            </div>
             <h1 className="text-2xl sm:text-4xl font-black tracking-tight">
               {t.faqs.title}
             </h1>
-            <p className="text-xs sm:text-sm text-blue-100 mt-2 max-w-2xl mx-auto leading-relaxed">
-              {t.faqs.subtitle}
-            </p>
-
-            {/* Instant Search Bar */}
-            <div className="mt-8 max-w-2xl mx-auto relative">
-              <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={
-                  lang === "hi"
-                    ? "प्रश्न अथवा समाधान खोजें (जैसे: शिकायत, समय सीमा, 1100, ट्रैकिंग)..."
-                    : "Search questions or solutions (e.g., complaint, SLA, tracking, 1100)..."
-                }
-                className="w-full pl-12 pr-10 py-3.5 rounded-2xl bg-white text-slate-900 placeholder:text-slate-400 shadow-xl border border-white/20 focus:outline-none focus:ring-3 focus:ring-amber-400 text-sm font-medium transition-all"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 text-xs font-bold"
-                >
-                  ✕
-                </button>
-              )}
-            </div>
           </div>
         </section>
 
@@ -193,12 +153,11 @@ function FAQContent() {
                 </h3>
                 <p className="text-xs text-slate-500 mt-1">
                   {lang === "hi"
-                    ? "कृपया अन्य कीवर्ड खोजें अथवा सभी प्रश्न देखें"
-                    : "Try adjusting your search query or reset filters"}
+                    ? "कृपया अन्य श्रेणी चुनें अथवा सभी प्रश्न देखें"
+                    : "Try selecting another category or view all questions"}
                 </p>
                 <button
                   onClick={() => {
-                    setSearchQuery("");
                     setActiveCategory("all");
                   }}
                   className="mt-4 px-4 py-2 bg-[#1C4D8D] text-white text-xs font-semibold rounded-xl hover:bg-blue-800"
@@ -308,7 +267,7 @@ function FAQContent() {
               <div>
                 <div className="flex items-center gap-2 text-[#C35504] font-bold text-xs uppercase tracking-wider mb-1">
                   <Phone className="w-4 h-4" />
-                  <span>{lang === "hi" ? "24×7 नागरिक सहायता उपलब्ध" : "24×7 Citizen Helpline Available"}</span>
+                  <span>{lang === "hi" ? "24×7 / 365 दिन नागरिक सहायता उपलब्ध" : "24×7 / 365 Days Citizen Helpline Available"}</span>
                 </div>
                 <h3 className="text-lg sm:text-xl font-black text-slate-900">
                   {lang === "hi" ? "क्या आपको अतिरिक्त सहायता चाहिए?" : "Still Have Questions or Need Help?"}

@@ -101,7 +101,7 @@ export const translations: Record<Language, Translations> = {
   hi: {
     topBar: {
       helpline: "📞 हेल्पलाइन: 1100",
-      available247: "24×7 उपलब्ध",
+      available247: "24×7 / 365 दिन उपलब्ध",
       email: "ईमेल आईडी:",
       emailPlaceholder: "(प्रस्तावित)",
       langSelect: "भाषा चुनें",
@@ -270,7 +270,7 @@ export const translations: Record<Language, Translations> = {
       contactUs: "संपर्क करें",
       addressTitle: "आधिकारिक पता",
       tollFree: "टोल-फ्री: 1100",
-      stateCallCenter: "24×7 राज्य कॉल सेंटर",
+      stateCallCenter: "24×7 / 365 दिन राज्य कॉल सेंटर",
       addressText: [
         "सहयोग हेल्पलाइन",
         "11वीं मंजिल, बिस्कोमान टॉवर",
@@ -285,7 +285,7 @@ export const translations: Record<Language, Translations> = {
   en: {
     topBar: {
       helpline: "📞 Helpline: 1100",
-      available247: "Available 24×7",
+      available247: "Available 24×7 / 365 Days",
       email: "Email ID:",
       emailPlaceholder: "(to be proposed)",
       langSelect: "Select Language",
@@ -454,7 +454,7 @@ export const translations: Record<Language, Translations> = {
       contactUs: "Contact Us",
       addressTitle: "Official Address",
       tollFree: "Toll Free: 1100",
-      stateCallCenter: "24×7 State Call Center",
+      stateCallCenter: "24×7 / 365 Days State Call Center",
       addressText: [
         "Sahyog Helpline",
         "11th Floor, Biscomaun Tower",
